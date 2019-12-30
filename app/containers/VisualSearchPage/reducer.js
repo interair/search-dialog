@@ -90,6 +90,7 @@ const visualSearchPageReducer = (state = initialState, action) =>
 
       case FETCH_IMG_SUCCESS:
         console.log("4. FETCH_IMG_SUCCESS");
+        console.log("4.  -",action.fetch);
         break;
       case FETCH_IMG_ERROR:
         console.log("FETCH_IMG_ERROR");

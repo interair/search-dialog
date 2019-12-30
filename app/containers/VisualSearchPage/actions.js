@@ -65,9 +65,10 @@ export function fetchImgRequest(fileUpload) {
     fileUpload,
   };
 }
-export function fetchImgSuccess() {
+export function fetchImgSuccess(fetch) {
   return {
     type: FETCH_IMG_SUCCESS,
+    fetch,
   };
 }
 export function fetchImgError() {

@@ -1,8 +1,8 @@
 import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 import request from 'utils/request';
-import createUploadFileChannel  from 'utils/request';
-import { FETCH_ATTR_REQUEST,FETCH_IMG_REQUEST } from './constants';
-import { fetchAttrSuccess,fetchImgSuccess } from './actions';
+import createUploadFileChannel from 'utils/request';
+import { FETCH_ATTR_REQUEST, FETCH_IMG_REQUEST } from './constants';
+import { fetchAttrSuccess, fetchImgSuccess } from './actions';
 
 export function* fetchAttr() {
   const url = `http://react-api.webfortest.ru/?attr-list`;
@@ -14,17 +14,24 @@ export function* fetchAttr() {
 }
 
 export function* fetchImg(el) {
-  console.log("3. saga - fetchImg");
-  console.log("3. -",el.fileUpload);
+  console.log('3. saga - fetchImg');
+  console.log('3. -', el.fileUpload);
   const url = `http://react-api.webfortest.ru/?search`;
 
-  var formData = new FormData();
-  formData.append("my_file", el.fileUpload);
-  var request = new XMLHttpRequest();
-  request.open("POST", url);
-  request.send(formData);
-
-  //yield put(fetchImgSuccess(response));
+  let fd = new FormData();
+  fd.append('fileUpload', el.fileUpload);
+  try {
+    const response = yield call(request, url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+      },
+      body: fd,
+    });
+    console.log('response -',response);
+    yield put(fetchImgSuccess(response));
+  } catch (err) {
+  }
 }
 
 // Individual exports for testing
