@@ -1,0 +1,18 @@
+.c-visual-search{
+  display: grid;
+  grid-template-areas: "cl cr";
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 5px;
+}
+
+.c-visual-search .c-left{
+  grid-area: cl;
+}
+.c-visual-search .c-right{
+  grid-area: cr;
+}
+
+
+.UploadImg img{
+  width: 100%;
+}

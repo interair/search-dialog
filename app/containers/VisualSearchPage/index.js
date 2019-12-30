@@ -3,8 +3,9 @@
  * VisualSearchPage
  *
  */
+import './style/style.css';
 
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -19,9 +20,18 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
-export function VisualSearchPage() {
+import { UploadImg } from './components/UploadImg';
+import { SelectAttr } from './components/SelectAttr';
+import { SearchButton } from './components/SearchButton';
+import { ListImg } from './components/ListImg';
+import { DownloadButton } from './components/DownloadButton';
+import { selectImg, changeAttr, fetchAttrRequest } from './actions';
+
+export function VisualSearchPage(props) {
   useInjectReducer({ key: 'visualSearchPage', reducer });
   useInjectSaga({ key: 'visualSearchPage', saga });
+
+  useEffect(() => props.fetchAttr(), [1]);
 
   return (
     <div>
@@ -30,12 +40,33 @@ export function VisualSearchPage() {
         <meta name="description" content="Description of VisualSearchPage" />
       </Helmet>
       <FormattedMessage {...messages.header} />
+
+      <div className="c-visual-search">
+        <div className="c-left">
+          <UploadImg
+            uploadImg={props.visualSearchPage.uploadImg}
+            selectImg={props.selectImg}
+          />
+          <SelectAttr
+            attr={props.visualSearchPage.attr}
+            changeAttr={props.changeAttr}
+          />
+          <SearchButton />
+        </div>
+        <div className="c-right">
+          <ListImg />
+          <DownloadButton />
+        </div>
+      </div>
     </div>
   );
 }
 
 VisualSearchPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  fetchAttr: PropTypes.func.isRequired,
+  selectImg: PropTypes.func.isRequired,
+  changeAttr: PropTypes.func.isRequired,
+  fetchAttrRequest: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -44,7 +75,15 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    fetchAttr: () => {
+      dispatch(fetchAttrRequest());
+    },
+    selectImg: (selectedImg, fileUpload) => {
+      dispatch(selectImg(selectedImg, fileUpload));
+    },
+    changeAttr: (name, value) => {
+      dispatch(changeAttr(name, value));
+    },
   };
 }
 

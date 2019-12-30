@@ -65,6 +65,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "7.4.3",
+    "@material/react-list": "^0.15.0",
+    "@material/react-menu-surface": "^0.15.0",
+    "@material/react-select": "^0.15.0",
     "chalk": "2.4.2",
     "compression": "1.7.4",
     "connected-react-router": "6.4.0",
