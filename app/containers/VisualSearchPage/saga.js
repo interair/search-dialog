@@ -1,6 +1,6 @@
 import { take, call, put, select, takeLatest } from 'redux-saga/effects';
-//import axios from 'axios';
 import request from 'utils/request';
+import createUploadFileChannel  from 'utils/request';
 import { FETCH_ATTR_REQUEST,FETCH_IMG_REQUEST } from './constants';
 import { fetchAttrSuccess,fetchImgSuccess } from './actions';
 
@@ -13,14 +13,18 @@ export function* fetchAttr() {
   }
 }
 
-export function* fetchImg() {
+export function* fetchImg(el) {
   console.log("3. saga - fetchImg");
-  const url = `http://react-api.webfortest.ru/?attr-list`;
-  try {
-    const response = yield call(request, url);
-    yield put(fetchImgSuccess(response));
-  } catch (err) {
-  }
+  console.log("3. -",el.fileUpload);
+  const url = `http://react-api.webfortest.ru/?search`;
+
+  var formData = new FormData();
+  formData.append("my_file", el.fileUpload);
+  var request = new XMLHttpRequest();
+  request.open("POST", url);
+  request.send(formData);
+
+  //yield put(fetchImgSuccess(response));
 }
 
 // Individual exports for testing

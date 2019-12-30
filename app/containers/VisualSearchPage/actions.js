@@ -59,9 +59,10 @@ export function resetSearchAction() {
     type: RESET_SEARCH,
   };
 }
-export function fetchImgRequest() {
+export function fetchImgRequest(fileUpload) {
   return {
     type: FETCH_IMG_REQUEST,
+    fileUpload,
   };
 }
 export function fetchImgSuccess() {

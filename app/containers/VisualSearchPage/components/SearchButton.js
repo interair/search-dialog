@@ -9,7 +9,8 @@ export function SearchButton(props) {
   };
   const onSearchAction = () => {
     console.log("1. SearchButton - onSearchAction");
-    props.fetchImg();
+    console.log("1. -",props.fileUpload);
+    props.fetchImg(props.fileUpload);
   };
 
   return (

@@ -56,7 +56,12 @@ export function VisualSearchPage(props) {
             attr={props.visualSearchPage.attr}
             changeAttr={props.changeAttr}
           />
-          <SearchButton resetSearchAction={props.resetSearchAction} fetchImg={props.fetchImg}/>
+          <SearchButton
+            resetSearchAction={props.resetSearchAction}
+            fetchImg={props.fetchImg}
+            fileUpload={props.visualSearchPage.uploadImg.fileUpload}
+            attr={props.visualSearchPage.attr}
+          />
         </div>
         <div className="c-right">
           <ListImg />
@@ -86,9 +91,10 @@ function mapDispatchToProps(dispatch) {
     fetchAttr: () => {
       dispatch(fetchAttrRequest());
     },
-    fetchImg: () => {
+    fetchImg: (fileUpload) => {
       console.log("2. index - mapDispatchToProps - fetchImg");
-      dispatch(fetchImgRequest());
+      console.log("2. -",fileUpload);
+      dispatch(fetchImgRequest(fileUpload));
     },
     selectImg: (selectedImg, fileUpload) => {
       dispatch(selectImg(selectedImg, fileUpload));
