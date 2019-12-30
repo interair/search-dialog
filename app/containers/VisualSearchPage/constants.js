@@ -12,5 +12,8 @@ export const FETCH_ATTR_REQUEST = 'app/VisualSearchPage/FETCH_ATTR_REQUEST';
 export const FETCH_ATTR_SUCCESS = 'app/VisualSearchPage/FETCH_ATTR_SUCCESS';
 export const FETCH_ATTR_ERROR = 'app/VisualSearchPage/FETCH_ATTR_ERROR';
 
-export const SEARCH = 'app/VisualSearchPage/SEARCH';
 export const RESET_SEARCH = 'app/VisualSearchPage/RESET_SEARCH';
+
+export const FETCH_IMG_REQUEST = 'app/VisualSearchPage/FETCH_IMG_REQUEST';
+export const FETCH_IMG_SUCCESS = 'app/VisualSearchPage/FETCH_IMG_SUCCESS';
+export const FETCH_IMG_ERROR = 'app/VisualSearchPage/FETCH_IMG_ERROR';

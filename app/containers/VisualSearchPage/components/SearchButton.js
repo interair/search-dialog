@@ -8,7 +8,8 @@ export function SearchButton(props) {
     props.resetSearchAction();
   };
   const onSearchAction = () => {
-    props.searchAction();
+    console.log("1. SearchButton - onSearchAction");
+    props.fetchImg();
   };
 
   return (

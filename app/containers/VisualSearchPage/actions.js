@@ -12,7 +12,9 @@ import {
   FETCH_ATTR_SUCCESS,
   FETCH_ATTR_ERROR,
   RESET_SEARCH,
-  SEARCH,
+  FETCH_IMG_REQUEST,
+  FETCH_IMG_SUCCESS,
+  FETCH_IMG_ERROR,
 } from './constants';
 
 export function defaultAction() {
@@ -57,8 +59,18 @@ export function resetSearchAction() {
     type: RESET_SEARCH,
   };
 }
-export function searchAction() {
+export function fetchImgRequest() {
   return {
-    type: SEARCH,
+    type: FETCH_IMG_REQUEST,
+  };
+}
+export function fetchImgSuccess() {
+  return {
+    type: FETCH_IMG_SUCCESS,
+  };
+}
+export function fetchImgError() {
+  return {
+    type: FETCH_IMG_ERROR,
   };
 }

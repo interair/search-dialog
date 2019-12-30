@@ -12,7 +12,8 @@ import {
   FETCH_ATTR_SUCCESS,
   FETCH_ATTR_ERROR,
   RESET_SEARCH,
-  SEARCH,
+  FETCH_IMG_SUCCESS,
+  FETCH_IMG_ERROR,
 } from './constants';
 
 import defaultImg from './img/default_img.jpg';
@@ -66,12 +67,14 @@ const visualSearchPageReducer = (state = initialState, action) =>
         });
         return attr;
         break;
+
       case FETCH_ATTR_SUCCESS:
         return { ...state, attr: action.fetch.attr };
         break;
       case FETCH_ATTR_ERROR:
         console.log('FETCH_ATTR_ERROR');
         break;
+
       case RESET_SEARCH:
         const reset_state = {
           ...state,
@@ -84,8 +87,12 @@ const visualSearchPageReducer = (state = initialState, action) =>
         });
         return reset_state;
         break;
-      case SEARCH:
-        console.log('SEARCH');
+
+      case FETCH_IMG_SUCCESS:
+        console.log("4. FETCH_IMG_SUCCESS");
+        break;
+      case FETCH_IMG_ERROR:
+        console.log("FETCH_IMG_ERROR");
         break;
     }
   });

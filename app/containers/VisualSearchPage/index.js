@@ -25,7 +25,12 @@ import { SelectAttr } from './components/SelectAttr';
 import { SearchButton } from './components/SearchButton';
 import { ListImg } from './components/ListImg';
 import { DownloadButton } from './components/DownloadButton';
-import { selectImg, changeAttr, fetchAttrRequest, resetSearchAction, searchAction } from './actions';
+import {
+  selectImg, changeAttr,
+  fetchAttrRequest,
+  resetSearchAction,
+  fetchImgRequest,
+} from './actions';
 
 export function VisualSearchPage(props) {
   useInjectReducer({ key: 'visualSearchPage', reducer });
@@ -51,7 +56,7 @@ export function VisualSearchPage(props) {
             attr={props.visualSearchPage.attr}
             changeAttr={props.changeAttr}
           />
-          <SearchButton resetSearchAction={props.resetSearchAction} searchAction={props.searchAction}/>
+          <SearchButton resetSearchAction={props.resetSearchAction} fetchImg={props.fetchImg}/>
         </div>
         <div className="c-right">
           <ListImg />
@@ -64,11 +69,12 @@ export function VisualSearchPage(props) {
 
 VisualSearchPage.propTypes = {
   fetchAttr: PropTypes.func.isRequired,
+  fetchImg: PropTypes.func.isRequired,
   selectImg: PropTypes.func.isRequired,
   changeAttr: PropTypes.func.isRequired,
   fetchAttrRequest: PropTypes.func,
+  fetchImgRequest: PropTypes.func,
   resetSearchAction: PropTypes.func.isRequired,
-  searchAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -80,6 +86,10 @@ function mapDispatchToProps(dispatch) {
     fetchAttr: () => {
       dispatch(fetchAttrRequest());
     },
+    fetchImg: () => {
+      console.log("2. index - mapDispatchToProps - fetchImg");
+      dispatch(fetchImgRequest());
+    },
     selectImg: (selectedImg, fileUpload) => {
       dispatch(selectImg(selectedImg, fileUpload));
     },
@@ -88,9 +98,6 @@ function mapDispatchToProps(dispatch) {
     },
     resetSearchAction: () => {
       dispatch(resetSearchAction());
-    },
-    searchAction: () => {
-      dispatch(searchAction());
     },
   };
 }
