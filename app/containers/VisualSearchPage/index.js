@@ -64,7 +64,7 @@ export function VisualSearchPage(props) {
           />
         </div>
         <div className="c-right">
-          <ListImg />
+          <ListImg listImg={props.visualSearchPage.listImg} />
           <DownloadButton />
         </div>
       </div>

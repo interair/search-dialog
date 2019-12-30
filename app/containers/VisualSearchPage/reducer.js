@@ -43,6 +43,7 @@ export const initialState = {
       selected: 0,
     },
   ],
+  listImg: [],
 };
 
 const visualSearchPageReducer = (state = initialState, action) =>
@@ -80,6 +81,7 @@ const visualSearchPageReducer = (state = initialState, action) =>
           ...state,
           uploadImg: { defaultImg, selectedImg: null, fileUpload: null },
           attr: [...state.attr],
+          listImg: [],
         };
         reset_state.attr = reset_state.attr.map(el => {
           el.selected= 0;
@@ -91,6 +93,7 @@ const visualSearchPageReducer = (state = initialState, action) =>
       case FETCH_IMG_SUCCESS:
         console.log("4. FETCH_IMG_SUCCESS");
         console.log("4.  -",action.fetch);
+        return { ... state, listImg: action.fetch.img};
         break;
       case FETCH_IMG_ERROR:
         console.log("FETCH_IMG_ERROR");
