@@ -16,3 +16,18 @@
 .UploadImg img{
   width: 100%;
 }
+
+
+.d-search-button{
+  display: grid;
+  grid-template-areas: "bl br";
+  grid-template-columns: 1fr 1fr;
+}
+.d-search-button-l{
+  grid-area: bl;
+  text-align: center;
+}
+.d-search-button-r{
+  grid-area: br;
+  text-align: center;
+}

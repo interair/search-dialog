@@ -11,3 +11,6 @@ export const CHANGE_ATTR = 'app/VisualSearchPage/CHANGE_ATTR';
 export const FETCH_ATTR_REQUEST = 'app/VisualSearchPage/FETCH_ATTR_REQUEST';
 export const FETCH_ATTR_SUCCESS = 'app/VisualSearchPage/FETCH_ATTR_SUCCESS';
 export const FETCH_ATTR_ERROR = 'app/VisualSearchPage/FETCH_ATTR_ERROR';
+
+export const SEARCH = 'app/VisualSearchPage/SEARCH';
+export const RESET_SEARCH = 'app/VisualSearchPage/RESET_SEARCH';

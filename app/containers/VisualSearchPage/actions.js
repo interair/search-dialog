@@ -11,6 +11,8 @@ import {
   FETCH_ATTR_REQUEST,
   FETCH_ATTR_SUCCESS,
   FETCH_ATTR_ERROR,
+  RESET_SEARCH,
+  SEARCH,
 } from './constants';
 
 export function defaultAction() {
@@ -47,5 +49,16 @@ export function fetchAttrError(message) {
   return {
     type: FETCH_ATTR_ERROR,
     message,
+  };
+}
+
+export function resetSearchAction() {
+  return {
+    type: RESET_SEARCH,
+  };
+}
+export function searchAction() {
+  return {
+    type: SEARCH,
   };
 }

@@ -11,6 +11,8 @@ import {
   FETCH_ATTR_REQUEST,
   FETCH_ATTR_SUCCESS,
   FETCH_ATTR_ERROR,
+  RESET_SEARCH,
+  SEARCH,
 } from './constants';
 
 import defaultImg from './img/default_img.jpg';
@@ -69,6 +71,21 @@ const visualSearchPageReducer = (state = initialState, action) =>
         break;
       case FETCH_ATTR_ERROR:
         console.log('FETCH_ATTR_ERROR');
+        break;
+      case RESET_SEARCH:
+        const reset_state = {
+          ...state,
+          uploadImg: { defaultImg, selectedImg: null, fileUpload: null },
+          attr: [...state.attr],
+        };
+        reset_state.attr = reset_state.attr.map(el => {
+          el.selected= 0;
+          return el;
+        });
+        return reset_state;
+        break;
+      case SEARCH:
+        console.log('SEARCH');
         break;
     }
   });

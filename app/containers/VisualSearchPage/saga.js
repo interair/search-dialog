@@ -13,7 +13,7 @@ export function* fetchAttr() {
   }
 }
 
-export function* fetchAttr() {
+export function* fetchImg() {
   const url = `http://react-api.webfortest.ru/?attr-list`;
   try {
     const response = yield call(request, url);

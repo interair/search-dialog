@@ -25,7 +25,7 @@ import { SelectAttr } from './components/SelectAttr';
 import { SearchButton } from './components/SearchButton';
 import { ListImg } from './components/ListImg';
 import { DownloadButton } from './components/DownloadButton';
-import { selectImg, changeAttr, fetchAttrRequest } from './actions';
+import { selectImg, changeAttr, fetchAttrRequest, resetSearchAction, searchAction } from './actions';
 
 export function VisualSearchPage(props) {
   useInjectReducer({ key: 'visualSearchPage', reducer });
@@ -51,7 +51,7 @@ export function VisualSearchPage(props) {
             attr={props.visualSearchPage.attr}
             changeAttr={props.changeAttr}
           />
-          <SearchButton />
+          <SearchButton resetSearchAction={props.resetSearchAction} searchAction={props.searchAction}/>
         </div>
         <div className="c-right">
           <ListImg />
@@ -67,6 +67,8 @@ VisualSearchPage.propTypes = {
   selectImg: PropTypes.func.isRequired,
   changeAttr: PropTypes.func.isRequired,
   fetchAttrRequest: PropTypes.func,
+  resetSearchAction: PropTypes.func.isRequired,
+  searchAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -83,6 +85,12 @@ function mapDispatchToProps(dispatch) {
     },
     changeAttr: (name, value) => {
       dispatch(changeAttr(name, value));
+    },
+    resetSearchAction: () => {
+      dispatch(resetSearchAction());
+    },
+    searchAction: () => {
+      dispatch(searchAction());
     },
   };
 }
