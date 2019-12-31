@@ -16,7 +16,13 @@
 .UploadImg img{
   width: 100%;
 }
+.d-upload-button{
+  text-align: right;
+}
 
+.d-none{
+  display: none;
+}
 
 /* selectAttr */
 .mdc-select{

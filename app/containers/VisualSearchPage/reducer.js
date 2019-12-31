@@ -88,7 +88,12 @@ const visualSearchPageReducer = (state = initialState, action) =>
           ...state,
           uploadImg: { defaultImg, selectedImg: null, fileUpload: null },
           attr: [...state.attr],
-          listImg: [],
+          listImg: {
+            countImg: null,
+            page: 0,
+            countInPage: 0,
+            img: [],
+          },
         };
         reset_state.attr = reset_state.attr.map(el => {
           el.selected = 0;
