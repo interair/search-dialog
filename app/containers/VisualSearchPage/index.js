@@ -69,7 +69,7 @@ export function VisualSearchPage(props) {
             listImg={props.visualSearchPage.listImg}
             loadMoreAction={props.loadMoreAction}
           />
-          <DownloadButton />
+          <DownloadButton countImg={props.visualSearchPage.listImg.countImg} />
         </div>
       </div>
     </div>

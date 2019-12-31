@@ -110,7 +110,6 @@ const visualSearchPageReducer = (state = initialState, action) =>
         break;
 
       case LOAD_MORE:
-        console.log('LOAD_MORE');
         const load_more = {...state, listImg: { ...state.listImg }};
         load_more.listImg.page++;
         return load_more;

@@ -23,9 +23,6 @@ export function* fetchImg(el) {
   try {
     const response = yield call(request, url, {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-      },
       body: fd,
     });
     console.log('response -',response);
