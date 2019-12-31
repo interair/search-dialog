@@ -30,6 +30,7 @@ import {
   fetchAttrRequest,
   resetSearchAction,
   fetchImgRequest,
+  loadMoreAction,
 } from './actions';
 
 export function VisualSearchPage(props) {
@@ -64,7 +65,10 @@ export function VisualSearchPage(props) {
           />
         </div>
         <div className="c-right">
-          <ListImg listImg={props.visualSearchPage.listImg} />
+          <ListImg
+            listImg={props.visualSearchPage.listImg}
+            loadMoreAction={props.loadMoreAction}
+          />
           <DownloadButton />
         </div>
       </div>
@@ -80,6 +84,7 @@ VisualSearchPage.propTypes = {
   fetchAttrRequest: PropTypes.func,
   fetchImgRequest: PropTypes.func,
   resetSearchAction: PropTypes.func.isRequired,
+  loadMoreAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -104,6 +109,9 @@ function mapDispatchToProps(dispatch) {
     },
     resetSearchAction: () => {
       dispatch(resetSearchAction());
+    },
+    loadMoreAction: () => {
+      dispatch(loadMoreAction());
     },
   };
 }

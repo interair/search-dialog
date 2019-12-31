@@ -17,3 +17,5 @@ export const RESET_SEARCH = 'app/VisualSearchPage/RESET_SEARCH';
 export const FETCH_IMG_REQUEST = 'app/VisualSearchPage/FETCH_IMG_REQUEST';
 export const FETCH_IMG_SUCCESS = 'app/VisualSearchPage/FETCH_IMG_SUCCESS';
 export const FETCH_IMG_ERROR = 'app/VisualSearchPage/FETCH_IMG_ERROR';
+
+export const LOAD_MORE = 'app/VisualSearchPage/LOAD_MORE';

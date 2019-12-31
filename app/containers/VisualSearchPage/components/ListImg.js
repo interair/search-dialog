@@ -6,7 +6,7 @@ import Button from '@material/react-button';
 
 export function ListImg(props) {
 
-  const countInPage = 10;
+  const countInPage = props.listImg.countInPage;
   const page = props.listImg.page;
   const listImg = props.listImg.img.map((e,i) => {
     if(i<countInPage*page)
@@ -20,7 +20,7 @@ export function ListImg(props) {
   )});
 
   const loadMore = () => {
-
+    props.loadMoreAction();
   };
 
   return (

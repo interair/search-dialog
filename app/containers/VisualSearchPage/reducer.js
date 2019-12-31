@@ -14,6 +14,7 @@ import {
   RESET_SEARCH,
   FETCH_IMG_SUCCESS,
   FETCH_IMG_ERROR,
+  LOAD_MORE,
 } from './constants';
 
 import defaultImg from './img/default_img.jpg';
@@ -46,6 +47,7 @@ export const initialState = {
   listImg: {
     countImg: null,
     page: 0,
+    countInPage: 0,
     img: [],
   },
 
@@ -100,12 +102,18 @@ const visualSearchPageReducer = (state = initialState, action) =>
         console.log('4.  -', action.fetch);
         return {
           ...state,
-          listImg: { countImg: action.fetch.img.length, page: 1, img: action.fetch.img },
+          listImg: { countImg: action.fetch.img.length, page: 1, countInPage:10, img: action.fetch.img },
         };
-
         break;
       case FETCH_IMG_ERROR:
         console.log('FETCH_IMG_ERROR');
+        break;
+
+      case LOAD_MORE:
+        console.log('LOAD_MORE');
+        const load_more = {...state, listImg: { ...state.listImg }};
+        load_more.listImg.page++;
+        return load_more;
         break;
     }
   });

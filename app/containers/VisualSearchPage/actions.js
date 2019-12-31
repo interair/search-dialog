@@ -15,6 +15,7 @@ import {
   FETCH_IMG_REQUEST,
   FETCH_IMG_SUCCESS,
   FETCH_IMG_ERROR,
+  LOAD_MORE,
 } from './constants';
 
 export function defaultAction() {
@@ -74,5 +75,11 @@ export function fetchImgSuccess(fetch) {
 export function fetchImgError() {
   return {
     type: FETCH_IMG_ERROR,
+  };
+}
+
+export function loadMoreAction() {
+  return {
+    type: LOAD_MORE,
   };
 }
