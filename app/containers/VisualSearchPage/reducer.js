@@ -43,7 +43,12 @@ export const initialState = {
       selected: 0,
     },
   ],
-  listImg: [],
+  listImg: {
+    countImg: null,
+    page: 0,
+    img: [],
+  },
+
 };
 
 const visualSearchPageReducer = (state = initialState, action) =>
@@ -84,19 +89,23 @@ const visualSearchPageReducer = (state = initialState, action) =>
           listImg: [],
         };
         reset_state.attr = reset_state.attr.map(el => {
-          el.selected= 0;
+          el.selected = 0;
           return el;
         });
         return reset_state;
         break;
 
       case FETCH_IMG_SUCCESS:
-        console.log("4. FETCH_IMG_SUCCESS");
-        console.log("4.  -",action.fetch);
-        return { ... state, listImg: action.fetch.img};
+        console.log('4. FETCH_IMG_SUCCESS');
+        console.log('4.  -', action.fetch);
+        return {
+          ...state,
+          listImg: { countImg: action.fetch.img.length, page: 1, img: action.fetch.img },
+        };
+
         break;
       case FETCH_IMG_ERROR:
-        console.log("FETCH_IMG_ERROR");
+        console.log('FETCH_IMG_ERROR');
         break;
     }
   });
