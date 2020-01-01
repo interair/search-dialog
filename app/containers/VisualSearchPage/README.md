@@ -1,11 +1,14 @@
-## Визуальный поиск
+## Visual Search Page
 
-<img src="https://github.com/kirs077/search-dialog/blob/master/app/containers/VisualSearchPage/imgReadMe/1.png" alt="react boilerplate banner" align="center" />
+<img src="http://react-api.webfortest.ru/imgReadMe/1.png" alt="react boilerplate banner" align="center" />
 
 <div align="center"><strong>Визуальный поиск</strong></div>
 <br />
-
-ыы
+<dl>
+  <dt>Part to Match</dt>
+  <dd>Default картинка, просто визуализация, по ней поиск не идет</dd>
+  
+</dl>
 
 
 <br><br><br><br><br><br><br><br>
