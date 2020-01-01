@@ -1,6 +1,5 @@
 import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 import request from 'utils/request';
-import createUploadFileChannel from 'utils/request';
 import { FETCH_ATTR_REQUEST, FETCH_IMG_REQUEST } from './constants';
 import { fetchAttrSuccess, fetchImgSuccess } from './actions';
 
@@ -14,8 +13,6 @@ export function* fetchAttr() {
 }
 
 export function* fetchImg(el) {
-  console.log('3. saga - fetchImg');
-  console.log('3. -', el.fileUpload);
   const url = `http://react-api.webfortest.ru/?search`;
 
   let fd = new FormData();
@@ -25,7 +22,6 @@ export function* fetchImg(el) {
       method: 'POST',
       body: fd,
     });
-    console.log('response -',response);
     yield put(fetchImgSuccess(response));
   } catch (err) {
   }

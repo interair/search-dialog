@@ -9,7 +9,6 @@ import React, { memo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
@@ -18,7 +17,6 @@ import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectVisualSearchPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import messages from './messages';
 
 import { UploadImg } from './components/UploadImg';
 import { SelectAttr } from './components/SelectAttr';
@@ -96,8 +94,6 @@ function mapDispatchToProps(dispatch) {
       dispatch(fetchAttrRequest());
     },
     fetchImg: (fileUpload) => {
-      console.log("2. index - mapDispatchToProps - fetchImg");
-      console.log("2. -",fileUpload);
       dispatch(fetchImgRequest(fileUpload));
     },
     selectImg: (selectedImg, fileUpload) => {
