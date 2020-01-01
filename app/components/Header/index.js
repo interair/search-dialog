@@ -12,7 +12,7 @@ function Header() {
   return (
     <div>
       <A href="https://www.reactboilerplate.com/">
-        <Img src={Banner} alt="react-boilerplate - Logo" />
+        <Img src={Banner} alt="react-boilerplate - Logo" className={"height-100"} />
       </A>
       <NavBar>
         <HeaderLink to="/">
