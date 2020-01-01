@@ -7,7 +7,18 @@
 <dl>
   <dt>Part to Match</dt>
   <dd>Default картинка, просто визуализация, по ней поиск не идет</dd>
+    
+  <dt>Upload Image</dt>
+  <dd>выбор изображения для поиска</dd>
   
+  <dt>Attributes</dt>
+  <dd>при загрузке страницы запрос на сервер получения списка атрибутов</dd><br />
+  <dd>api</dd>
+  <dd>request</dd>
+  <dd>http://react-api.webfortest.ru/?attr-list</dd><br />
+  <dd>response</dd>
+  <dd>{"attr":[{"id":1,"name":"TagsFromServer","value":[{"value":1,"name":"Tag from server 1"},{"value":2,"name":"Tag from server 2"}]},{"id":2,"name":"MaterialFromServer","value":[{"value":1,"name":"Material from server 1"}]}]}</dd>
+
 </dl>
 
 
