@@ -1,3 +1,7 @@
+## Визуальный поиск
+
+<img src="https://github.com/kirs077/search-dialog/blob/master/app/containers/VisualSearchPage/imgReadMe/1.png" alt="react boilerplate banner" align="center" />
+
 <div align="center"><strong>Визуальный поиск</strong></div>
 <br />
 
