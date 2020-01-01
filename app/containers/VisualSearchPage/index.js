@@ -45,7 +45,6 @@ export function VisualSearchPage(props) {
         <title>VisualSearchPage</title>
         <meta name="description" content="Description of VisualSearchPage" />
       </Helmet>
-      <FormattedMessage {...messages.header} />
 
       <div className="c-visual-search">
         <div className="c-left">
